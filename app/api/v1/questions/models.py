@@ -31,3 +31,9 @@ class QuestionModel():
 
         self.db.append(data)
         return self.id
+
+    def get_all(self):
+        if not self.db:
+            return None
+        return self.db
+        
