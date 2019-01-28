@@ -102,3 +102,29 @@ class UpdateTitle(Resource):
                 }
         })
         
+class UpdateBody(Resource):
+    """docstring for patching a question's body"""
+
+    def __init__(self):
+        self.db = QuestionModel()
+
+    def patch(self, question_id):
+        """method to update a question's body"""
+        question = self.db.find(question_id)
+
+        if question == "question does not exist":
+            return jsonify({
+                "status": 404,
+                "message": "question does not exist"
+            })
+ 
+        edit_status = self.db.edit_question_body(question)
+
+        if edit_status == "updated":
+            return jsonify({
+                "status": 200,
+                "data": {
+                    "id": question_id,
+                    "message": "Updated question"
+                }
+            })
