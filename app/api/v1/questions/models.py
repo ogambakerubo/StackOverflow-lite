@@ -49,3 +49,8 @@ class QuestionModel():
         self.db.remove(question)
         self.db2.append(question)
         return "deleted"
+
+    def edit_question_title(self, question):
+        "Method to edit a questions title"
+        question['title'] = request.json.get('title')
+        return "updated"
