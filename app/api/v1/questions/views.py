@@ -59,3 +59,18 @@ class Question(Resource):
             "data": question
         })
         
+    def delete(self, question_id):
+        """docstring for deleting a question"""
+        question = self.db.find(question_id)
+        if question == "question does not exist":
+            return jsonify({
+                "status": 404,
+                "message": "question does not exist"
+            })
+
+        delete_status = self.db.delete(question)
+        if delete_status == "deleted":
+            return jsonify({
+                "status": 200,
+                "message": 'question record has been deleted'
+            })

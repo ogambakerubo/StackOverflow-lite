@@ -6,13 +6,14 @@ from flask import jsonify,request
 from flask_restful import Resource
 
 questions = []
-
+deleted_questions = []
 
 class QuestionModel():
     """Class with methods to perform CRUD operations on the list data structure"""
 
     def __init__(self):
         self.db = questions
+        self.db2 = deleted_questions
 
         if len(questions) == 0:
             self.id = 1
@@ -43,3 +44,8 @@ class QuestionModel():
                 return question
 
         return "question does not exist"
+
+    def delete(self, question):
+        self.db.remove(question)
+        self.db2.append(question)
+        return "deleted"
