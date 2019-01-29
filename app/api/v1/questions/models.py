@@ -5,6 +5,8 @@ import datetime
 from flask import jsonify,request
 from flask_restful import Resource
 
+from app.api.validators import parser, parser_edit_question, parser_edit_title
+
 questions = []
 deleted_questions = []
 
@@ -22,6 +24,7 @@ class QuestionModel():
         self.id = len(questions) + 1
 
     def save(self):
+        parser.parse_args()
         data = {
             'id': self.id,
             'createdOn': datetime.datetime.utcnow(),
@@ -52,10 +55,12 @@ class QuestionModel():
 
     def edit_question_title(self, question):
         "Method to edit a questions title"
+        parser_edit_title.parse_args()
         question['title'] = request.json.get('title')
         return "updated"
 
     def edit_question_body(self, question):
         "Method to edit a questions body"
+        parser_edit_question.parse_args()
         question['question'] = request.json.get('question')
         return "updated"
