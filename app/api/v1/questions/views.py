@@ -4,6 +4,7 @@ from flask import jsonify, request
 from flask_restful import Resource
 
 from .models import QuestionModel
+from app.api.validators import non_existance_question
 
 class Questions(Resource):
     """docstring for Questions class"""
@@ -49,10 +50,7 @@ class Question(Resource):
         """docstring for getting a specific question"""
         question = self.db.find(question_id)
         if question == "question does not exist":
-               return jsonify({
-                "status": 404,
-                "message": "question does not exist"
-            })
+               return non_existance_question()
        
         return jsonify({
             "status": 200,
@@ -63,10 +61,7 @@ class Question(Resource):
         """docstring for deleting a question"""
         question = self.db.find(question_id)
         if question == "question does not exist":
-            return jsonify({
-                "status": 404,
-                "message": "question does not exist"
-            })
+            return non_existance_question()
 
         delete_status = self.db.delete(question)
         if delete_status == "deleted":
@@ -86,10 +81,7 @@ class UpdateTitle(Resource):
         question = self.db.find(question_id)
 
         if question == "question does not exist":
-            return jsonify({
-                "status": 404,
-                "message": "question does not exist"
-            })
+            return non_existance_question()
 
         edit_status = self.db.edit_question_title(question)
 
@@ -113,10 +105,7 @@ class UpdateBody(Resource):
         question = self.db.find(question_id)
 
         if question == "question does not exist":
-            return jsonify({
-                "status": 404,
-                "message": "question does not exist"
-            })
+            return non_existance_question()
  
         edit_status = self.db.edit_question_body(question)
 
