@@ -1,6 +1,6 @@
 #StackOverflow-lite/app/__init__.py
 from flask import Flask, Blueprint
-from app.instance .config import APP_CONFIG
+from app.instance.config import APP_CONFIG
 from app.api.v1.routes import VERSION_UNO as v1
 
 def create_app(config_name):
