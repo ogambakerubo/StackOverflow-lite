@@ -1,3 +1,3 @@
-[![Build Status](https://travis-ci.org/ogambakerubo/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/ogambakerubo/StackOverflow-lite) [![Coverage Status](https://coveralls.io/repos/github/ogambakerubo/StackOverflow-lite/badge.svg?branch=develop)](https://coveralls.io/github/ogambakerubo/StackOverflow-lite?branch=develop)
+[![Build Status](https://travis-ci.org/ogambakerubo/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/ogambakerubo/StackOverflow-lite) [![Coverage Status](https://coveralls.io/repos/github/ogambakerubo/StackOverflow-lite/badge.svg?branch=develop)](https://coveralls.io/github/ogambakerubo/StackOverflow-lite?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/ac6a5ed0304a559bf091/maintainability)](https://codeclimate.com/github/ogambakerubo/StackOverflow-lite/maintainability)
 # StackOverflow-lite
 StackOverflow-lite​ is a platform where people can ask questions and provide responses.
